@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpecialCharacterType" load_steps=5 format=3 uid="uid://dhh1up2rndrvf"]
+
+[ext_resource type="Texture2D" uid="uid://bkxon7fjfc0er" path="res://assets/items/oggetti-spidero.png" id="1_dvh60"]
+[ext_resource type="Script" path="res://scripts/characters/specialitemtype.gd" id="2_83vhn"]
+[ext_resource type="AudioStream" uid="uid://ctushtatamyng" path="res://assets/audio/sounds/wow.wav" id="3_pauy6"]
+[ext_resource type="Curve2D" uid="uid://cyyiyuq6j8l7b" path="res://resources/linear_trajectory.tres" id="4_es431"]
+
+[resource]
+script = ExtResource("2_83vhn")
+character_kind = 2
+character_sprite = ExtResource("1_dvh60")
+character_size = 0.2
+trajectory = ExtResource("4_es431")
+falling_velocity_min = 1.0
+falling_velocity_base = 10.0
+falling_velocity_per_point = 0.001
+took_points = 0
+took_sound = ExtResource("3_pauy6")
+miss_points = 0
+spawn_weight_base = 1.0
+spawn_weight_per_point = 0.0

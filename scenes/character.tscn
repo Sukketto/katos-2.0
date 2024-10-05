@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2c7u20bhd6g3"]
+
+[ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_iso7j"]
+
+[sub_resource type="Curve2D" id="Curve2D_llii2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln2pu"]
+radius = 154.51
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_iso7j")
+
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_llii2")
+
+[node name="PathFollow" type="PathFollow2D" parent="Path"]
+position = Vector2(-1, 0)
+
+[node name="CharacterSprite" type="TextureRect" parent="Path/PathFollow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -309.0
+offset_right = -197.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.51786, 5.51786)
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CollisionArea" type="Area2D" parent="Path/PathFollow"]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Path/PathFollow/CollisionArea"]
+shape = SubResource("CircleShape2D_ln2pu")
+
+[node name="TookSound" type="AudioStreamPlayer" parent="."]
+
+[node name="MissSound" type="AudioStreamPlayer" parent="."]

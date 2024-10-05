@@ -21,6 +21,19 @@ window/size/viewport_height=1920
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://assets/audio/": "teal",
+"res://assets/avatars/": "blue",
+"res://assets/gui/": "purple",
+"res://assets/items/": "pink",
+"res://resources/": "orange",
+"res://scenes/": "yellow",
+"res://scripts/": "green"
+}
+
 [global_group]
 
 player=""

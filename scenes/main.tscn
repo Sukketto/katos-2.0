@@ -1,18 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://co3spmgg4gyx4"]
+[gd_scene load_steps=9 format=3 uid="uid://co3spmgg4gyx4"]
 
 [ext_resource type="Texture2D" uid="uid://d1gtp4xk7v77h" path="res://assets/gui/gui-sfondo.jpg" id="1_3gs7b"]
+[ext_resource type="Script" path="res://main.gd" id="1_xnn7d"]
 [ext_resource type="PackedScene" uid="uid://djflcnhwrocj1" path="res://scenes/player.tscn" id="2_3cyy8"]
-[ext_resource type="PackedScene" uid="uid://b5jbwjo4812ny" path="res://scenes/items/katos_merba.tscn" id="3_612gk"]
-[ext_resource type="PackedScene" uid="uid://4u0yasvgfe0r" path="res://scenes/items/paolo.tscn" id="4_eowyf"]
-
-[sub_resource type="Curve2D" id="Curve2D_5shaf"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -708, 0, 0, 0, 0, 0, 841)
-}
-point_count = 2
+[ext_resource type="Script" path="res://scripts/falling_characters.gd" id="3_wsptb"]
+[ext_resource type="Script" path="res://scripts/characters/charactertype.gd" id="4_46w16"]
+[ext_resource type="Resource" uid="uid://ceb2togfdjccp" path="res://resources/paolo.tres" id="4_o1m1d"]
+[ext_resource type="Resource" uid="uid://dhh1up2rndrvf" path="res://resources/spidero.tres" id="5_wkxwl"]
+[ext_resource type="PackedScene" uid="uid://c2c7u20bhd6g3" path="res://scenes/character.tscn" id="6_cp2cs"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(540, 960)
+script = ExtResource("1_xnn7d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -28,11 +27,10 @@ stretch_mode = 3
 [node name="Player" parent="." instance=ExtResource("2_3cyy8")]
 position = Vector2(229, 790)
 
-[node name="KatosMerba" parent="." instance=ExtResource("3_612gk")]
-position = Vector2(86, -864)
+[node name="Falling Characters" type="Node" parent="."]
+script = ExtResource("3_wsptb")
+characters = Array[ExtResource("4_46w16")]([ExtResource("5_wkxwl"), ExtResource("4_o1m1d")])
 
-[node name="Paolo" parent="." instance=ExtResource("4_eowyf")]
-position = Vector2(-60, -864)
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_5shaf")
+[node name="Paolo esempio" parent="Falling Characters" instance=ExtResource("6_cp2cs")]
+position = Vector2(405.966, 234.522)
+type = ExtResource("4_o1m1d")

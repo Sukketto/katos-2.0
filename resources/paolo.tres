@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=6 format=3 uid="uid://ceb2togfdjccp"]
+
+[ext_resource type="Script" path="res://scripts/characters/charactertype.gd" id="1_i2ada"]
+[ext_resource type="Texture2D" uid="uid://dsg0hhvucrr1p" path="res://assets/items/oggetti-paolo.png" id="1_qo32r"]
+[ext_resource type="AudioStream" uid="uid://bbovjjc0shkfg" path="res://assets/audio/sounds/morte.wav" id="2_fmiql"]
+[ext_resource type="Curve2D" uid="uid://cyyiyuq6j8l7b" path="res://resources/linear_trajectory.tres" id="2_nn08j"]
+[ext_resource type="AudioStream" uid="uid://yajvg6kg4bdd" path="res://assets/audio/sounds/oggetti-paolo.wav" id="4_df88m"]
+
+[resource]
+script = ExtResource("1_i2ada")
+character_kind = 2
+character_sprite = ExtResource("1_qo32r")
+character_size = 0.2
+trajectory = ExtResource("2_nn08j")
+falling_velocity_min = 1.0
+falling_velocity_base = 10.0
+falling_velocity_per_point = 0.001
+took_points = 20
+took_sound = ExtResource("4_df88m")
+miss_points = -10
+miss_sound = ExtResource("2_fmiql")
+spawn_weight_base = 1.0
+spawn_weight_per_point = 0.0

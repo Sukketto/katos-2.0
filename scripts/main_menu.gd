@@ -1,5 +1,7 @@
 extends Control
 
+const API_URL = "https://aleclasher.altervista.org/api/"
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if !$StartButton.is_hovered() \
@@ -11,7 +13,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready():
 	$HTTPRequest.request_completed.connect(_on_request_completed)
-	$HTTPRequest.request("http://aleclasher.altervista.org/api/punteggi")
+	$HTTPRequest.request(API_URL + "punteggi")
 
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
@@ -62,22 +64,4 @@ func _on_ok_from_leaderboard_button_pressed() -> void:
 	$LeaderboardTexture.visible = false
 
 func match_avatar(avatar: int):
-	match avatar:
-		0:
-			return load("res://assets/avatars/avatars-0.png")
-		1:
-			return load("res://assets/avatars/avatars-1.png")
-		2:
-			return load("res://assets/avatars/avatars-2.png")
-		3:
-			return load("res://assets/avatars/avatars-3.png")
-		4:
-			return load("res://assets/avatars/avatars-4.png")
-		5:
-			return load("res://assets/avatars/avatars-5.png")
-		6:
-			return load("res://assets/avatars/avatars-6.png")
-		7:
-			return load("res://assets/avatars/avatars-7.png")
-		8:
-			return load("res://assets/avatars/avatars-8.png")
+	return load("res://assets/avatars/avatars-%d.png" % avatar)
