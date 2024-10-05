@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj2y7geus8au1"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_f4cxg"]
+[ext_resource type="Texture2D" uid="uid://d1gtp4xk7v77h" path="res://assets/gui/gui-sfondo.jpg" id="1_g4ogk"]
+[ext_resource type="Texture2D" uid="uid://dx5dkxplitfrh" path="res://assets/gui/gui-menu.png" id="2_6y41d"]
+[ext_resource type="Texture2D" uid="uid://biylh5p16qbn5" path="res://assets/gui/gui-aiuto.png" id="4_vemod"]
+[ext_resource type="AudioStream" uid="uid://cqhssxa6ex5eq" path="res://assets/audio/sounds/oggetti-katosmerba.wav" id="5_jnl66"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f4cxg")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1920.0
+offset_right = 1920.0
+offset_bottom = 1920.0
+grow_horizontal = 2
+pivot_offset = Vector2(1920, 0)
+texture = ExtResource("1_g4ogk")
+
+[node name="BackgroundMenu" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1380.0
+offset_right = 2460.0
+offset_bottom = 1920.0
+texture = ExtResource("2_6y41d")
+
+[node name="StartButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -128.0
+offset_right = 334.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HelpButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 279.0
+offset_top = 70.0
+offset_right = 402.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HowToPlayTexture" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_vemod")
+
+[node name="OkButton" type="Button" parent="HowToPlayTexture"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = 480.0
+offset_right = 104.0
+offset_bottom = 576.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PoopSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jnl66")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="HowToPlayTexture/OkButton" to="." method="_on_ok_button_pressed"]
