@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bj2y7geus8au1"]
+[gd_scene load_steps=8 format=3 uid="uid://bj2y7geus8au1"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_f4cxg"]
 [ext_resource type="Texture2D" uid="uid://d1gtp4xk7v77h" path="res://assets/gui/gui-sfondo.jpg" id="1_g4ogk"]
 [ext_resource type="Texture2D" uid="uid://dx5dkxplitfrh" path="res://assets/gui/gui-menu.png" id="2_6y41d"]
 [ext_resource type="Texture2D" uid="uid://biylh5p16qbn5" path="res://assets/gui/gui-aiuto.png" id="4_vemod"]
 [ext_resource type="AudioStream" uid="uid://cqhssxa6ex5eq" path="res://assets/audio/sounds/oggetti-katosmerba.wav" id="5_jnl66"]
+[ext_resource type="AudioStream" uid="uid://dvi5jfddupqch" path="res://assets/audio/sounds/gui-aiuto.wav" id="6_qedxx"]
+[ext_resource type="AudioStream" uid="uid://c2om7d31ampr6" path="res://assets/audio/sounds/gui-click.wav" id="7_5njqv"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -89,7 +91,11 @@ grow_vertical = 2
 [node name="PoopSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jnl66")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="HelpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qedxx")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5njqv")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
