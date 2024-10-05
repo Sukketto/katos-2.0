@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://co3spmgg4gyx4"]
+
+[ext_resource type="Texture2D" uid="uid://d1gtp4xk7v77h" path="res://assets/gui/gui-sfondo.jpg" id="1_3gs7b"]
+[ext_resource type="PackedScene" uid="uid://djflcnhwrocj1" path="res://scenes/player.tscn" id="2_3cyy8"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(540, 0)
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BackgroundImage" type="TextureRect" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1920.0
+offset_right = 1920.0
+offset_bottom = 1920.0
+grow_horizontal = 2
+pivot_offset = Vector2(1920, 0)
+texture = ExtResource("1_3gs7b")
+
+[node name="Player" parent="." instance=ExtResource("2_3cyy8")]
+position = Vector2(229, 1750)
