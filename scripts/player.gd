@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends Node2D
 
 func _process(delta: float) -> void:
 	var screen_center = get_viewport_rect().size.x/2

@@ -21,6 +21,10 @@ window/size/viewport_height=1920
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
+[global_group]
+
+player=""
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true

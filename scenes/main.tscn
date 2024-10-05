@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://co3spmgg4gyx4"]
+[gd_scene load_steps=6 format=3 uid="uid://co3spmgg4gyx4"]
 
 [ext_resource type="Texture2D" uid="uid://d1gtp4xk7v77h" path="res://assets/gui/gui-sfondo.jpg" id="1_3gs7b"]
 [ext_resource type="PackedScene" uid="uid://djflcnhwrocj1" path="res://scenes/player.tscn" id="2_3cyy8"]
+[ext_resource type="PackedScene" uid="uid://b5jbwjo4812ny" path="res://scenes/items/katos_merba.tscn" id="3_612gk"]
+[ext_resource type="PackedScene" uid="uid://4u0yasvgfe0r" path="res://scenes/items/paolo.tscn" id="4_eowyf"]
+
+[sub_resource type="Curve2D" id="Curve2D_5shaf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -708, 0, 0, 0, 0, 0, 841)
+}
+point_count = 2
 
 [node name="Main" type="Node2D"]
 position = Vector2(540, 960)
@@ -19,3 +27,12 @@ stretch_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("2_3cyy8")]
 position = Vector2(229, 790)
+
+[node name="KatosMerba" parent="." instance=ExtResource("3_612gk")]
+position = Vector2(86, -864)
+
+[node name="Paolo" parent="." instance=ExtResource("4_eowyf")]
+position = Vector2(-60, -864)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_5shaf")
