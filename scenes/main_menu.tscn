@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj2y7geus8au1"]
+[gd_scene load_steps=11 format=3 uid="uid://bj2y7geus8au1"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_f4cxg"]
 [ext_resource type="Texture2D" uid="uid://d1gtp4xk7v77h" path="res://assets/gui/gui-sfondo.jpg" id="1_g4ogk"]
 [ext_resource type="Texture2D" uid="uid://dx5dkxplitfrh" path="res://assets/gui/gui-menu.png" id="2_6y41d"]
 [ext_resource type="Texture2D" uid="uid://biylh5p16qbn5" path="res://assets/gui/gui-aiuto.png" id="4_vemod"]
 [ext_resource type="AudioStream" uid="uid://cqhssxa6ex5eq" path="res://assets/audio/sounds/oggetti-katosmerba.wav" id="5_jnl66"]
+[ext_resource type="Texture2D" uid="uid://cfjlum6tpma3a" path="res://assets/gui/gui-punteggi.png" id="5_n2nam"]
 [ext_resource type="AudioStream" uid="uid://dvi5jfddupqch" path="res://assets/audio/sounds/gui-aiuto.wav" id="6_qedxx"]
+[ext_resource type="Texture2D" uid="uid://dfc2nai8awrs7" path="res://assets/avatars/avatars-0.png" id="6_vamdj"]
 [ext_resource type="AudioStream" uid="uid://c2om7d31ampr6" path="res://assets/audio/sounds/gui-click.wav" id="7_5njqv"]
+[ext_resource type="FontFile" uid="uid://d12vfolrsvnxf" path="res://assets/fonts/BitCell.ttf" id="7_dd8od"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,6 +19,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f4cxg")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
 layout_mode = 1
@@ -66,6 +71,21 @@ offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="LeaderboardButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = 70.0
+offset_right = -279.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="HowToPlayTexture" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
@@ -73,7 +93,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_vemod")
 
-[node name="OkButton" type="Button" parent="HowToPlayTexture"]
+[node name="OkFromHelpButton" type="Button" parent="HowToPlayTexture"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -88,6 +108,173 @@ offset_bottom = 576.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="LeaderboardTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_n2nam")
+
+[node name="OkFromLeaderboardButton" type="Button" parent="LeaderboardTexture"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = 480.0
+offset_right = 104.0
+offset_bottom = 576.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardTexture"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = -529.0
+offset_right = 329.0
+offset_bottom = 441.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Slot1" type="HBoxContainer" parent="LeaderboardTexture/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="AvatarTexture" type="TextureRect" parent="LeaderboardTexture/VBoxContainer/Slot1"]
+layout_mode = 2
+texture = ExtResource("6_vamdj")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardTexture/VBoxContainer/Slot1"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot1/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 100
+text = "NOME"
+
+[node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot1/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 60
+text = "PUNTEGGIO: 1000"
+
+[node name="Slot2" type="HBoxContainer" parent="LeaderboardTexture/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="AvatarTexture" type="TextureRect" parent="LeaderboardTexture/VBoxContainer/Slot2"]
+layout_mode = 2
+texture = ExtResource("6_vamdj")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardTexture/VBoxContainer/Slot2"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 100
+text = "NOME"
+
+[node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 60
+text = "PUNTEGGIO: 1000"
+
+[node name="Slot3" type="HBoxContainer" parent="LeaderboardTexture/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="AvatarTexture" type="TextureRect" parent="LeaderboardTexture/VBoxContainer/Slot3"]
+layout_mode = 2
+texture = ExtResource("6_vamdj")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardTexture/VBoxContainer/Slot3"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 100
+text = "NOME"
+
+[node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 60
+text = "PUNTEGGIO: 1000"
+
+[node name="Slot4" type="HBoxContainer" parent="LeaderboardTexture/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="AvatarTexture" type="TextureRect" parent="LeaderboardTexture/VBoxContainer/Slot4"]
+layout_mode = 2
+texture = ExtResource("6_vamdj")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardTexture/VBoxContainer/Slot4"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot4/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 100
+text = "NOME"
+
+[node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot4/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 60
+text = "PUNTEGGIO: 1000"
+
+[node name="Slot5" type="HBoxContainer" parent="LeaderboardTexture/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="AvatarTexture" type="TextureRect" parent="LeaderboardTexture/VBoxContainer/Slot5"]
+layout_mode = 2
+texture = ExtResource("6_vamdj")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardTexture/VBoxContainer/Slot5"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot5/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 100
+text = "NOME"
+
+[node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot5/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_dd8od")
+theme_override_font_sizes/font_size = 60
+text = "PUNTEGGIO: 1000"
+
 [node name="PoopSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jnl66")
 
@@ -99,4 +286,6 @@ stream = ExtResource("7_5njqv")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
-[connection signal="pressed" from="HowToPlayTexture/OkButton" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="HowToPlayTexture/OkFromHelpButton" to="." method="_on_ok_from_help_button_pressed"]
+[connection signal="pressed" from="LeaderboardTexture/OkFromLeaderboardButton" to="." method="_on_ok_from_leaderboard_button_pressed"]
