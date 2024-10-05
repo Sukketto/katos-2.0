@@ -4,21 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://djflcnhwrocj1" path="res://scenes/player.tscn" id="2_3cyy8"]
 
 [node name="Main" type="Node2D"]
-position = Vector2(540, 0)
+position = Vector2(540, 960)
 
-[node name="UI" type="CanvasLayer" parent="."]
-layer = -1
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="BackgroundImage" type="TextureRect" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+[node name="BackgroundImage" type="TextureRect" parent="."]
 offset_left = -1920.0
+offset_top = -960.0
 offset_right = 1920.0
-offset_bottom = 1920.0
-grow_horizontal = 2
-pivot_offset = Vector2(1920, 0)
+offset_bottom = 960.0
+pivot_offset = Vector2(1920, 960)
 texture = ExtResource("1_3gs7b")
+stretch_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("2_3cyy8")]
-position = Vector2(229, 1750)
+position = Vector2(229, 790)
