@@ -203,7 +203,7 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot1/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0.679688, 0, 1)
 theme_override_fonts/font = ExtResource("7_dd8od")
 theme_override_font_sizes/font_size = 100
 text = "NOME"
@@ -229,9 +229,9 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot2/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.539063, 0.526724, 0.507477, 1)
 theme_override_fonts/font = ExtResource("7_dd8od")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 95
 text = "NOME"
 
 [node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot2/VBoxContainer"]
@@ -255,9 +255,9 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot3/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.65625, 0.386805, 0.0999756, 1)
 theme_override_fonts/font = ExtResource("7_dd8od")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 90
 text = "NOME"
 
 [node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot3/VBoxContainer"]
@@ -283,7 +283,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_dd8od")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "NOME"
 
 [node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot4/VBoxContainer"]
@@ -309,7 +309,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_dd8od")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "NOME"
 
 [node name="ScoreLabel" type="Label" parent="LeaderboardTexture/VBoxContainer/Slot5/VBoxContainer"]
